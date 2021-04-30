@@ -1,5 +1,5 @@
 import { AfterContentChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {  FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Movie } from '../model/movie';
 
 @Component({
@@ -10,7 +10,12 @@ import { Movie } from '../model/movie';
 export class MovieComponent implements OnInit {
 
   @ViewChild('mForm', { static: true }) movieForm: FormGroup;
-  movie: Movie = new Movie();
+  movie: Movie = {
+    id: 0,
+    title: '',
+    year: null,
+    category: 'Choose Category'
+  }
 
   constructor() {
 
@@ -20,7 +25,7 @@ export class MovieComponent implements OnInit {
   }
 
   saveMovie(): any {
-    return {};
+    console.log(this.movie);
   }
 
 }
